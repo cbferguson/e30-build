@@ -227,16 +227,63 @@
     }
     .spec-val { color: var(--text); font-weight: 400; }
 
+    /* WORK COMPLETED */
+    #work {
+      padding: 7rem 3rem;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-top: 0;
+    }
+
+    .work-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .work-item:hover { background: var(--bg2); }
+
+    .work-check {
+      width: 18px;
+      height: 18px;
+      border: 1px solid var(--accent2);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: rgba(200,169,110,0.08);
+    }
+    .work-check svg { color: var(--accent); }
+
+    .work-label {
+      font-size: 0.88rem;
+      color: var(--text);
+      font-weight: 300;
+      line-height: 1.3;
+    }
+
+    
     /* GALLERY */
     #gallery { padding: 7rem 3rem; background: var(--bg); }
 
     .photo-grid {
-      columns: 3;
-      column-gap: 0.75rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
     }
     .photo-item {
-      break-inside: avoid;
-      margin-bottom: 0.75rem;
       overflow: hidden;
       border: 1px solid var(--border);
       cursor: pointer;
@@ -249,7 +296,8 @@
     .photo-item img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       transition: transform 0.5s ease;
     }
     .photo-item:hover img { transform: scale(1.03); }
@@ -375,14 +423,14 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 900px) { .photo-grid { columns: 2; } }
+    @media (max-width: 900px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 600px) {
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
       .hero { padding: 0 1.5rem 4rem; }
       #about, #gallery, .upload-section { padding: 5rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .photo-grid { columns: 1; }
+      .photo-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
@@ -393,6 +441,7 @@
     <div class="nav-logo">E30 <span>/ Project</span></div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#work">Work Completed</a></li>
       <li><a href="#gallery">Gallery</a></li>
     </ul>
   </nav>
